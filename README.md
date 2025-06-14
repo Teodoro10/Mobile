@@ -9,7 +9,7 @@
  
 ## 🎨 Design & Protótipo
 
-[![Figma](https://img.shields.io/badge/Figma-Protótipo_Interativo-FF6B6B?logo=figma&style=for-the-badge&logoColor=white)](https://www.figma.com/design/gFlhX8AWGM3qA8UQ3agLMZ/MOBILE?node-id=0-1&t=zRs8a6dVvpfqZyC3-1)
+[![Figma](https://img.shields.io/badge/Figma-Protótipo-FF6B6B?logo=figma&style=for-the-badge&logoColor=white)](https://www.figma.com/design/gFlhX8AWGM3qA8UQ3agLMZ/MOBILE?node-id=0-1&t=zRs8a6dVvpfqZyC3-1)
 
 
 # 🚀 Mobile App
