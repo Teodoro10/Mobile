@@ -9,8 +9,6 @@
  
 ## 🎨 Design & Protótipo
 
-Acesse o projeto completo no Figma para visualizar o fluxo de usuário, componentes UI e design system:
-
 [![Figma](https://img.shields.io/badge/Figma-Protótipo_Interativo-FF6B6B?logo=figma&style=for-the-badge&logoColor=white)](https://www.figma.com/design/gFlhX8AWGM3qA8UQ3agLMZ/MOBILE?node-id=0-1&t=zRs8a6dVvpfqZyC3-1)
 
 
