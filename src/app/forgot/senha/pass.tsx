@@ -14,14 +14,14 @@ const ForgotPasswordScreen = () => {
     }
 
     const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: "myapp:/rede/senha", // coloque a URL do seu app para o redirecionamento
+      redirectTo: "myapp:/rede/senha", 
     });
 
     if (error) {
       Alert.alert("Erro", error.message);
     } else {
       Alert.alert("Sucesso", "Verifique seu e-mail para redefinir sua senha.");
-      router.push("/"); // Voltar para login ou home
+      router.push("/"); 
     }
   };
 
