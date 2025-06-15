@@ -11,18 +11,32 @@ const LoginScreen = () => {
     const [glicemiaSemJejum, setGlicemiaSemJejum] = useState("");
     const [pressaoSistolica, setPressaoSistolica] = useState("");
     const [pressaoDiastolica, setPressaoDiastolica] = useState("");
-
+    const [altura, setAltura] = useState("");
+    const [peso, setPeso] = useState("");
+    const [resultadoIMC, setResultadoIMC] = useState("");
     const [resultadoGlicemia, setResultadoGlicemia] = useState("");
     const [resultadoPressao, setResultadoPressao] = useState("");
     const [dataHoraGlicemia, setDataHoraGlicemia] = useState("");
     const [dataHoraPressao, setDataHoraPressao] = useState("");
 
-    const [focusedFields, setFocusedFields] = useState({
-        jejum: false,
-        semJejum: false,
-        sistolica: false,
-        diastolica: false
-    });
+const classificarIMC = (imc: number): string => {
+    if (imc < 18.5) return "Abaixo do peso ⚠️";
+    if (imc < 25) return "Peso normal ✅";
+    if (imc < 30) return "Sobrepeso ⚠️";
+    if (imc < 35) return "Obesidade grau 1 ⛔";
+    if (imc < 40) return "Obesidade grau 2 ⛔";
+    return "Obesidade grau 3 (mórbida) ⛔";
+};
+
+const [focusedFields, setFocusedFields] = useState({
+    jejum: false,
+    semJejum: false,
+    sistolica: false,
+    diastolica: false,
+    altura: false,
+    peso: false,
+});
+
 
     const classificarGlicemiaJejum = (valor: number): string => {
         if (valor < 70) return "Hipoglicemia ⚠️";
@@ -83,6 +97,29 @@ const LoginScreen = () => {
     Alert.alert("Erro", "Valores de pressão inválidos");
   }
 
+  try {
+    if (altura && peso) {
+      const alturaMetros = parseFloat(altura) / 100; // altura em cm para metros
+      const pesoKg = parseFloat(peso);
+      const imc = pesoKg / (alturaMetros * alturaMetros);
+      const resultado = `IMC: ${imc.toFixed(1)} - ${classificarIMC(imc)}`;
+      setResultadoIMC(resultado);
+
+      setHistorico(prev => [
+        ...prev,
+        {
+          glicemia: novaGlicemia,
+          pressao: novaPressao,
+          data: agora,
+        },
+      ]);
+
+      salvarNoSupabase(novaGlicemia, novaPressao, altura, peso, imc.toFixed(1));
+    }
+  } catch {
+    Alert.alert("Erro", "Altura ou peso inválidos");
+  }
+
   // Salva no histórico
   if (novaGlicemia || novaPressao) {
     setHistorico(prev => [
@@ -103,7 +140,13 @@ if (novaGlicemia || novaPressao) {
   
 };
 
-const salvarNoSupabase = async (glicemia: string, pressao: string) => {
+const salvarNoSupabase = async (
+  glicemia: string,
+  pressao: string,
+  altura?: string,
+  peso?: string,
+  imc?: string
+) => {
   const {
     data: { user },
     error: userError,
@@ -119,13 +162,22 @@ const salvarNoSupabase = async (glicemia: string, pressao: string) => {
       user_id: user.id,
       glicemia,
       pressao,
+      altura,
+      peso,
+      imc,
     },
   ]);
 
   if (error) {
     Alert.alert("Erro ao salvar no Supabase", error.message);
   }
-}
+};
+
+
+  
+
+  
+
 
 
     const handleFocus = (field: string) => {
@@ -198,6 +250,29 @@ const salvarNoSupabase = async (glicemia: string, pressao: string) => {
                 />
             </View>
 
+            <Text style={styles.subtitle}>Altura e Peso</Text>
+
+<TextInput
+  style={[styles.input, focusedFields.altura && styles.inputFocused]}
+  placeholder="Altura (cm)"
+  value={altura}
+  onChangeText={setAltura}
+  keyboardType="numeric"
+  onFocus={() => handleFocus("altura")}
+  onBlur={() => handleBlur("altura")}
+/>
+
+<TextInput
+  style={[styles.input, focusedFields.peso && styles.inputFocused]}
+  placeholder="Peso (kg)"
+  value={peso}
+  onChangeText={setPeso}
+  keyboardType="numeric"
+  onFocus={() => handleFocus("peso")}
+  onBlur={() => handleBlur("peso")}
+/>
+
+
             <TouchableOpacity style={styles.calculateButton} onPress={calcularResultados}>
                 <Text style={styles.calculateButtonText}>Calcular</Text>
             </TouchableOpacity>
@@ -215,6 +290,14 @@ const salvarNoSupabase = async (glicemia: string, pressao: string) => {
                     <Text style={styles.timestampText}>Registrado em: {dataHoraPressao}</Text>
                 </>
             ) : null}
+
+{resultadoIMC ? (
+  <>
+    <Text style={styles.resultText}>{resultadoIMC}</Text>
+    <Text style={styles.timestampText}>Registrado em: {dataHoraGlicemia}</Text>
+  </>
+) : null}
+
         </View>
 
         
