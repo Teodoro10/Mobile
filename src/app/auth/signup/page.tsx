@@ -17,7 +17,7 @@ export default function RegisterScreen() {
       return;
     }
 
-    // Criar usuário na autenticação (signUp)
+   
     const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password: senha,
@@ -28,7 +28,7 @@ export default function RegisterScreen() {
       return;
     }
 
-    // Inserir dados adicionais na tabela users
+   
     const { data, error } = await supabase
       .from("users")
       .insert([
@@ -37,7 +37,7 @@ export default function RegisterScreen() {
           age: parseInt(idade, 10),
           phone: cpf,
           email,
-          password: senha, // idealmente não salvar a senha aqui, apenas no auth
+          password: senha, 
         },
       ]);
 
@@ -45,7 +45,7 @@ export default function RegisterScreen() {
       alert("Erro ao cadastrar: " + error.message);
     } else {
       alert("Cadastro realizado com sucesso!");
-      router.push("/"); // ou vá para a tela de login
+      router.push("/"); 
     }
   }
 
