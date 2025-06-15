@@ -13,7 +13,7 @@ export default function RegisterScreen() {
   const [image, setImage] = useState<string | null>(null);
   const router = useRouter();
 
-  // Carrega dados ao entrar
+
   useEffect(() => {
     (async () => {
       const session = await supabase.auth.getSession();
@@ -30,7 +30,7 @@ export default function RegisterScreen() {
           setName(data.name);
           setTelefone(data.phone);
           setEmail(data.email);
-          setSenha(data.password); // Em produção, não faça isso!
+          setSenha(data.password); 
           setIdade(data.age.toString());
         }
 
@@ -39,7 +39,7 @@ export default function RegisterScreen() {
         }
       } else {
         Alert.alert('Erro', 'Usuário não autenticado.');
-        router.push('/'); // ou redireciona para login
+        router.push('/'); 
       }
     })();
 
@@ -89,7 +89,7 @@ const updateUserData = async () => {
   }
 
   try {
-    // Atualiza email e/ou senha via Supabase Auth
+   
     const updates: { email?: string; password?: string } = {};
     if (email !== user.email) updates.email = email;
     if (senha) updates.password = senha;
@@ -102,7 +102,7 @@ const updateUserData = async () => {
       }
     }
 
-    // Atualiza os dados na tabela users
+   
     const { error: dbError } = await supabase
       .from('users')
       .update({
@@ -111,7 +111,7 @@ const updateUserData = async () => {
         email,
         age: parseInt(idade),
       })
-      .eq('id', user.id); // ou `.eq('email', user.email)` se não tiver id
+      .eq('id', user.id);
 
     if (dbError) {
       Alert.alert('Erro ao atualizar banco de dados', dbError.message);
