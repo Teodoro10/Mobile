@@ -6,9 +6,6 @@
 | Felipe Teodoro Ribeiro 
 | Luca Bianconi Mashorca 
 
-
-![WhatsApp Video 2025-06-26 at 22 49 22](https://github.com/user-attachments/assets/ef28e6fa-96d7-4a5c-baf4-54500351ff43)
-
 ### Aplicativo móvel para registrar de forma fácil e rápida a pressão arterial e os níveis de glicemia. 
 
  ## 🎨 Design & Protótipo
@@ -46,5 +43,23 @@
 - Supabase
 
 
+Pré-requisitos para Desenvolvimento Mobile com React Native <br>
+✅ 1. Instalar o Node.js <br>
+Acesse o site oficial: https://nodejs.org <br>
+Baixe a versão LTS (recomendada para maior estabilidade) <br>
 
+✅ 2. Instalar o Yarn <br>
+Com o Node.js já instalado, instale o Yarn via npm:  <br>
+npm install -g yarn
 
+✅ 3. Instalar o Expo CLI <br> 
+Instale o Expo CLI globalmente:  <br>
+yarn global add expo-cli <br>
+
+✅ 4. Instalar o Visual Studio Code (VS Code) <br>
+Acesse: https://code.visualstudio.com  <br>
+Baixe e instale o VS Code <br>
+
+Executando o Projeto  <br>
+Instale o app Expo Go no seu celular:  <br>
+Android Play Store <br>
