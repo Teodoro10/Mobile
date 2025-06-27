@@ -7,6 +7,8 @@
 | Luca Bianconi Mashorca 
 
 
+![WhatsApp Video 2025-06-26 at 22 49 22](https://github.com/user-attachments/assets/ef28e6fa-96d7-4a5c-baf4-54500351ff43)
+
 ### Aplicativo móvel para registrar de forma fácil e rápida a pressão arterial e os níveis de glicemia. 
 
  ## 🎨 Design & Protótipo
