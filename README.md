@@ -1,24 +1,27 @@
 ﻿# Mobile-Projeto
-## 👨‍💻 Colaboradores
 
 | Membros
 |--------
 | Diego Rodrigues Conceição 
 | Felipe Teodoro Ribeiro 
 | Luca Bianconi Mashorca 
- 
-## 🎨 Design & Protótipo
+
+
+### Aplicativo móvel para registrar de forma fácil e rápida a pressão arterial e os níveis de glicemia. 
+
+ ## 🎨 Design & Protótipo
 
 [![Figma](https://img.shields.io/badge/Figma-Protótipo-FF6B6B?logo=figma&style=for-the-badge&logoColor=white)](https://www.figma.com/design/gFlhX8AWGM3qA8UQ3agLMZ/MOBILE?node-id=0-1&t=zRs8a6dVvpfqZyC3-1)
 
 
-# 🚀 Mobile App
+## 📸 Preview
 
-[![React Native](https://img.shields.io/badge/React_Native-0.71-blue?logo=react)](https://reactnative.dev)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+<div style="display: flex; justify-content: space-around;">
+  <img src="https://github.com/user-attachments/assets/4dea2f22-ac2b-4606-93e5-3a73ece4651d" alt="login" width="200"/>
+  <img src="https://github.com/user-attachments/assets/9311a687-99d5-425c-ab62-8c5925b3c663" alt="pressao" width="200"/>
+  <img src="https://github.com/user-attachments/assets/4b01efc7-6e69-4af1-8245-4edf59c5330c" alt="perfil" width="200"/>
+</div>
 
-
-### Aplicativo móvel para registrar de forma fácil e rápida a pressão arterial e os níveis de glicemia. 
 
 
 
@@ -40,10 +43,6 @@
 - React native
 - Supabase
 
-## 📸 Preview
 
-![login](https://github.com/user-attachments/assets/a0f9231a-c1e8-401d-b00d-29cb3faee3e2)
-![pressao](https://github.com/user-attachments/assets/20eb86b3-1acf-4742-b8a6-39c547b663b3)
-![perfil](https://github.com/user-attachments/assets/3929178b-aa78-494a-adbf-999c5cc3f902)
 
 
